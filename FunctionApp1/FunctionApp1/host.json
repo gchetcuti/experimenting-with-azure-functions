@@ -1,11 +1,21 @@
 {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-            "samplingExcludedTypes": "Request",
-            "samplingSettings": {
-                "isEnabled": true
-            }
-        }
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "httpAutoCollectionOptions": {
+        "enableW3CDistributedTracing": true
+      }
     }
+  },
+  "extensions": {
+    "durableTask": {
+      "tracing": {
+        "DistributedTracingProtocol": "W3CTraceContext"
+      }
+    }
+  }
 }
